@@ -1,0 +1,17 @@
+<!-- 회사 페이지와 제품 페이지 모두에 포함되는 최상단 탭 -->
+<nav class="navbar navbar-expand-lg shadow-sm" style="background-color: rgba(29,22,232,0.15);">
+    <div class="container-fluid" style="height: 64px; width: 90%">
+        <div class="col text-start">
+            <a type="button" class="btn btn-outline-secondary {{ isCompany|yesno:'active,' }}"
+               style="border: transparent; border-radius: 25pt;" href="{% url 'company:intro' %}">회사</a>
+            <a type="button" class="btn btn-outline-secondary {{ isCompany|yesno:',active' }}"
+               style="border: transparent; border-radius: 25pt;" href="{% url 'products:lists' %}">제품</a>
+        </div>
+        <div class="col text-center">
+            <a class="navbar-brand fs-3" href="{% url 'company:intro' %}">Home</a>
+        </div>
+        <div class="col text-end">
+            <button type="button" class="btn btn-sm btn-outline-secondary" style="border-radius: 25pt;">회원가입/로그인</button>
+        </div>
+    </div>
+</nav>
