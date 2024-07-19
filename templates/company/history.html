@@ -1,3 +1,15 @@
 <div class="container">
-    history
+    <br>
+    <div class="row gap-2">
+        <div class="col-4 border rounded p-3">
+            {% load static %}
+            <img src="{% static 'images/history.webp' %}" alt="이미지 없음!" class="img-fluid">
+        </div>
+        <div class="col border rounded p-3 bg-body-tertiary">
+            {% lorem 2 p %}
+        </div>
+        <div class="col-12 border rounded p-3 bg-body-tertiary">
+            {% lorem 3 p %}
+        </div>
+    </div>
 </div>
