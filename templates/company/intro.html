@@ -1,14 +1,28 @@
 <div class="container">
     <br>
-    <div class="row gap-2">
-        <div class="col-4 border rounded p-3 bg-body-tertiary">
-            {% lorem 1 p %}
+    <div class="row g-2">
+        <div class="col-4">
+            <div class="border rounded bg-body-tertiary">
+                {% load static %}
+                <img src="{% static 'images/company.svg' %}" alt="이미지 없음!" class="img-fluid">
+            </div>
         </div>
-        <div class="col border rounded p-3 bg-body-tertiary">
-            {% lorem 2 p %}
+        <div class="col-8">
+            <div class="container-fluid">
+                <div class="row gy-2">
+                    <div class="col-12 border rounded bg-body-tertiary p-2">
+                        {% lorem 1 p %}
+                    </div>
+                    <div class="col-12 border rounded bg-body-tertiary p-2">
+                        {% lorem 1 p %}
+                    </div>
+                </div>
+            </div>
         </div>
-        <div class="col-12 border rounded p-3 bg-body-tertiary">
-            {% lorem 3 p %}
+        <div class="col-12">
+            <div class="border rounded bg-body-tertiary p-2">
+                {% lorem 3 p %}
+            </div>
         </div>
     </div>
 </div>
