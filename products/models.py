@@ -1,5 +1,21 @@
+import os
+from uuid import uuid4
+from django.utils.deconstruct import deconstructible
 from django.db import models
 from django.core.validators import MinValueValidator, MaxValueValidator
+
+
+@deconstructible
+class PathAndRename(object):
+    def __init__(self, sub_path):
+        self.path = sub_path
+
+    def __call__(self, instance, filename):
+        ext = filename.split('.')[-1]
+        # UUID를 사용하여 파일 이름 생성
+        filename = f'{uuid4().hex}.{ext}'
+        # 기존 경로 구조 유지
+        return os.path.join(self.path, filename)
 
 
 # 회사 상품
@@ -10,7 +26,10 @@ class Product(models.Model):
     desc = models.TextField()  # 상품 상세 설명
     summary = models.CharField(max_length=50)  # 상품 요약 설명
     img = models.ImageField(
-        upload_to='products/images/%Y/%M/%d/', null=True, blank=True)  # 상품 이미지 경로
+        upload_to=PathAndRename('products/images/%Y/%M/%d/'),
+        null=True,
+        blank=True
+    )  # 상품 이미지 경로
 
     def __str__(self):
         return f'[{self.pk}]{self.name}'
