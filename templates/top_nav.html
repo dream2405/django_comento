@@ -11,7 +11,8 @@
             <a class="navbar-brand fs-3" href="{% url 'company:intro' %}">Home</a>
         </div>
         <div class="col text-end">
-            <button type="button" class="btn btn-sm btn-outline-secondary" style="border-radius: 25pt;">회원가입/로그인</button>
+            <a type="button" class="btn btn-sm btn-outline-secondary"
+               style="border-radius: 25pt;" href="{% url 'account:login' %}">로그인/회원가입</a>
         </div>
     </div>
 </nav>
