@@ -1,7 +1,6 @@
+from django.contrib.auth import login
 from django.shortcuts import render, redirect
-from django.http import HttpResponse
-from django.contrib.auth import authenticate, login
-from .forms import LoginForm, SignupForm
+from .forms import SignupForm
 
 
 def my_page(request):

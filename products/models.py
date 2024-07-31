@@ -3,6 +3,7 @@ from uuid import uuid4
 from django.utils.deconstruct import deconstructible
 from django.db import models
 from django.core.validators import MinValueValidator, MaxValueValidator
+from django.contrib.auth.models import User
 
 
 @deconstructible
@@ -42,7 +43,9 @@ class Review(models.Model):
     score = models.SmallIntegerField(
         validators=[MinValueValidator(0), MaxValueValidator(10)])  # 평점(0~10, 정수)
     pub_date = models.DateTimeField(auto_now_add=True)  # 게시일
-    author = None  # 작성자(id)
+    author = models.ForeignKey(User, on_delete=models.CASCADE)  # 작성자(id)
+    create_date = models.DateTimeField(auto_now_add=True)  # 작성 시간
+    modify_date = models.DateTimeField(auto_now=True)  # 수정 시간
 
     def __str__(self):
         return f'[{self.pk}]{self.title}'

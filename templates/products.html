@@ -23,8 +23,7 @@
         {% for product in products_list %}
             <div class="col">
             <div class="card">
-                {# TODO: 상품 상세 페이지 추가 #}
-                <a href="#">
+                <a href="{% url 'products:detail' product_id=product.id menu='price' %}">
                     {% if product.img %}
                         <img class="card-img-top square_img" src="{{ product.img.url }}" alt="{{ product.name }}">
                     {% else %}
